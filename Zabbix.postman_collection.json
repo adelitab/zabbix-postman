@@ -1,0 +1,500 @@
+{
+	"info": {
+		"_postman_id": "48dc048d-9d44-461e-8edc-6bd800cfa13c",
+		"name": "Zabbix",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "21761506"
+	},
+	"item": [
+		{
+			"name": "user.login",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});\r",
+							"\r",
+							"var jsonData = JSON.parse(responseBody);\r",
+							"\r",
+							"var token = jsonData.result;\r",
+							"\r",
+							"postman.setGlobalVariable(\"TOKEN\", token);"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"jsonrpc\": \"2.0\",\r\n    \"method\": \"user.login\",\r\n    \"params\": {\r\n        \"user\": \"seu usuário\",\r\n        \"password\": \"sua senha\"\r\n    },\r\n    \"id\": 1\r\n}"
+				},
+				"url": {
+					"raw": "https://seu.endereco.zabbix/api_jsonrpc.php",
+					"protocol": "https",
+					"host": [
+						"seu",
+						"endereco",
+						"zabbix"
+					],
+					"path": [
+						"api_jsonrpc.php"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "usermacro.get",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});\r",
+							"\r",
+							"var jsonData = JSON.parse(responseBody);\r",
+							"\r",
+							"var token = jsonData.result;\r",
+							"\r",
+							"postman.setGlobalVariable(\"TOKEN\", token);"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"jsonrpc\": \"2.0\",\r\n    \"method\": \"usermacro.get\",\r\n    \"params\": {\r\n        \"hostid\": \"colocar o hostid que deseja\"\r\n    },\r\n    \"id\": 1,\r\n    \"auth\": \"{{TOKEN}}\"\r\n}"
+				},
+				"url": {
+					"raw": "https://seu.endereco.zabbix/api_jsonrpc.php",
+					"protocol": "https",
+					"host": [
+						"seu",
+						"endereco",
+						"zabbix"
+					],
+					"path": [
+						"api_jsonrpc.php"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "item.get",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});\r",
+							"\r",
+							"var jsonData = JSON.parse(responseBody);\r",
+							"\r",
+							"var token = jsonData.result;\r",
+							"\r",
+							"postman.setGlobalVariable(\"TOKEN\", token);"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"jsonrpc\": \"2.0\",\r\n    \"method\": \"item.get\",\r\n    \"params\": {\r\n        \"hostid\": \"colocar o hostid que deseja\"\r\n    },\r\n    \"id\": 1,\r\n    \"auth\": \"{{TOKEN}}\"\r\n}"
+				},
+				"url": {
+					"raw": "https://seu.endereco.zabbix/api_jsonrpc.php",
+					"protocol": "https",
+					"host": [
+						"seu",
+						"endereco",
+						"zabbix"
+					],
+					"path": [
+						"api_jsonrpc.php"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "trigger.get",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});\r",
+							"\r",
+							"var jsonData = JSON.parse(responseBody);\r",
+							"\r",
+							"var token = jsonData.result;\r",
+							"\r",
+							"postman.setGlobalVariable(\"TOKEN\", token);"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"jsonrpc\": \"2.0\",\r\n    \"method\": \"trigger.get\",\r\n    \"params\": {\r\n        \"output\": \"extend\",\r\n        \"hostid\": \"colocar o hostid que deseja\"\r\n    },\r\n    \"id\": 1,\r\n    \"auth\": \"{{TOKEN}}\"\r\n}"
+				},
+				"url": {
+					"raw": "https://seu.endereco.zabbix/api_jsonrpc.php",
+					"protocol": "https",
+					"host": [
+						"seu",
+						"endereco",
+						"zabbix"
+					],
+					"path": [
+						"api_jsonrpc.php"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "trigger.get2",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});\r",
+							"\r",
+							"var jsonData = JSON.parse(responseBody);\r",
+							"\r",
+							"var token = jsonData.result;\r",
+							"\r",
+							"postman.setGlobalVariable(\"TOKEN\", token);"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"jsonrpc\": \"2.0\",\r\n    \"method\": \"trigger.get\",\r\n    \"params\": {\r\n        \"output\": [\"description\", \"expression\", \"priority\"],\r\n        \"selectHosts\":[\"name\"],\r\n        \"hostids\": [\"colocar o hostid que deseja\", \"colocar o hostid que deseja\"],\r\n        \"groupIds\": \"colocar groupID que deseja\"\r\n    },\r\n    \"id\": 1,\r\n    \"auth\": \"{{TOKEN}}\"\r\n}"
+				},
+				"url": {
+					"raw": "https://seu.endereco.zabbix/api_jsonrpc.php",
+					"protocol": "https",
+					"host": [
+						"seu",
+						"endereco",
+						"zabbix"
+					],
+					"path": [
+						"api_jsonrpc.php"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "host.get",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});\r",
+							"\r",
+							"var jsonData = JSON.parse(responseBody);\r",
+							"\r",
+							"var token = jsonData.result;\r",
+							"\r",
+							"postman.setGlobalVariable(\"TOKEN\", token);"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"jsonrpc\": \"2.0\",\r\n    \"method\": \"host.get\",\r\n    \"params\": {\r\n        \"output\": \"extend\",\r\n        \"hostids\": [\"colocar o hostid que deseja\", \"colocar o hostid que deseja\"]\r\n    },\r\n    \"id\": 1,\r\n    \"auth\": \"{{TOKEN}}\"\r\n}"
+				},
+				"url": {
+					"raw": "https://seu.endereco.zabbix/api_jsonrpc.php",
+					"protocol": "https",
+					"host": [
+						"seu",
+						"endereco",
+						"zabbix"
+					],
+					"path": [
+						"api_jsonrpc.php"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "triggers x tag",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});\r",
+							"\r",
+							"var jsonData = JSON.parse(responseBody);\r",
+							"\r",
+							"var token = jsonData.result;\r",
+							"\r",
+							"postman.setGlobalVariable(\"TOKEN\", token);"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{ //Procurar Triggers que possuem a tag solicitada\r\n    \"jsonrpc\": \"2.0\",\r\n    \"method\": \"trigger.get\",\r\n    \"params\": {\r\n        \"selectTags\":\"extend\",\r\n        \"output\": [\"triggerid\", \"description\", \"priority\"],\r\n        \"tags\":[\r\n            {\r\n                \"tag\": \"campo name da tag\",\r\n                \"value\": \"campo value da tag\"\r\n            }\r\n        ]\r\n    },\r\n    \"id\": 1,\r\n    \"auth\": \"{{TOKEN}}\"\r\n}"
+				},
+				"url": {
+					"raw": "https://seu.endereco.zabbix/api_jsonrpc.php",
+					"protocol": "https",
+					"host": [
+						"seu",
+						"endereco",
+						"zabbix"
+					],
+					"path": [
+						"api_jsonrpc.php"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "itens x URLs",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});\r",
+							"\r",
+							"var jsonData = JSON.parse(responseBody);\r",
+							"\r",
+							"var token = jsonData.result;\r",
+							"\r",
+							"postman.setGlobalVariable(\"TOKEN\", token);"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{ //Procurar URL em itens\r\n    \"jsonrpc\": \"2.0\",\r\n    \"method\": \"item.get\",\r\n    \"params\": {\r\n        \"output\": [\"name\", \"url\", \"post\"],\r\n        \"searchByAny\" : true,\r\n        \"searchWildcardsEnabled\": true,\r\n        \"search\": {\"url\":\"colocar a url aqui\"}, //pode ser um trecho da url\r\n        \"selectHosts\":[\"name\"]\r\n    },\r\n    \"id\": 1,\r\n    \"auth\": \"{{TOKEN}}\"\r\n}"
+				},
+				"url": {
+					"raw": "https://seu.endereco.zabbix/api_jsonrpc.php",
+					"protocol": "https",
+					"host": [
+						"seu",
+						"endereco",
+						"zabbix"
+					],
+					"path": [
+						"api_jsonrpc.php"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "trigger x groupid",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});\r",
+							"\r",
+							"var jsonData = JSON.parse(responseBody);\r",
+							"\r",
+							"var token = jsonData.result;\r",
+							"\r",
+							"postman.setGlobalVariable(\"TOKEN\", token);"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{ //Procurar URL em itens\r\n    \"jsonrpc\": \"2.0\",\r\n    \"method\": \"trigger.get\",\r\n    \"params\": {\r\n        \"output\": [\"triggerid\", \"description\", \"priority\", \"expression\", \"recovery_expression\"],\r\n        \"selectHosts\": [\"host\"],\r\n        \"selectMacro\": \"extend\",\r\n        \"groupids\": 1, //alterar hostgroupID\r\n        \"expandDescription\": true,\r\n        \"expandExpression\": true\r\n    },\r\n    \"id\": 1,\r\n    \"auth\": \"{{TOKEN}}\"\r\n}"
+				},
+				"url": {
+					"raw": "https://seu.endereco.zabbix/api_jsonrpc.php",
+					"protocol": "https",
+					"host": [
+						"seu",
+						"endereco",
+						"zabbix"
+					],
+					"path": [
+						"api_jsonrpc.php"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "trigger x tag",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});\r",
+							"\r",
+							"var jsonData = JSON.parse(responseBody);\r",
+							"\r",
+							"var token = jsonData.result;\r",
+							"\r",
+							"postman.setGlobalVariable(\"TOKEN\", token);"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{ //Procurar URL em itens\r\n    \"jsonrpc\": \"2.0\",\r\n    \"method\": \"trigger.get\",\r\n    \"params\": {\r\n        \"output\": [\"triggerid\", \"description\", \"priority\", \"expression\", \"recovery_expression\"],\r\n        \"selectHosts\": [\"host\"],\r\n        \"selectMacro\": \"extend\",\r\n        \"expandDescription\": true,\r\n        \"expandExpression\": true,\r\n        \"tags\":[\r\n            {\r\n                \"tag\": \"campo name\",\r\n                \"value\": \"campo value\"\r\n            }\r\n        ]\r\n    },\r\n    \"id\": 1,\r\n    \"auth\": \"{{TOKEN}}\"\r\n}"
+				},
+				"url": {
+					"raw": "https://seu.endereco.zabbix/api_jsonrpc.php",
+					"protocol": "https",
+					"host": [
+						"seu",
+						"endereco",
+						"zabbix"
+					],
+					"path": [
+						"api_jsonrpc.php"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
