@@ -1,4 +1,5 @@
 # Zabbix API calls utilizando Postman
+![Postman](https://img.shields.io/badge/-Postman-333333?style=flat&logo=postman)
 
 Também possui dificuldade de realizar chamadas de API do Zabbix através do Postman? 
 
